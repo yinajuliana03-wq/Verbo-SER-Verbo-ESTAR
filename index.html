@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Camaleão do To Be - Guia Interativo de Inglês para Lusófonos</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --primary: #1b3b4a;
+            --secondary: #657562;
+            --accent: #d97706;
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --border-radius: 12px;
+            --code-bg: #edf2f7;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin: 0;
+        }
+
+        .section-box {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: var(--primary);
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .score-board {
+            background-color: var(--primary);
+            color: white;
+            padding: 18px 25px;
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .score-value {
+            color: #fef08a;
+            font-size: 1.8rem;
+        }
+
+        .phase-title {
+            color: var(--secondary);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .prompt {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .hint {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            background-color: var(--code-bg);
+            padding: 12px 18px;
+            border-left: 5px solid var(--secondary);
+            border-radius: 4px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        button.option-btn {
+            background-color: #ffffff;
+            color: var(--primary);
+            border: 2px solid #cbd5e1;
+            padding: 14px 20px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        button.option-btn:hover {
+            border-color: var(--primary);
+            background-color: #f8fafc;
+        }
+
+        button.btn-accent {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        button.btn-accent:hover {
+            background-color: #b45309;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback.correct {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .feedback.incorrect {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+
+        .explanation-details {
+            margin-top: 10px;
+            font-size: 0.98rem;
+            line-height: 1.5;
+        }
+
+        .phonetics-box {
+            margin-top: 12px;
+            padding: 10px 14px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 6px;
+            font-size: 0.92rem;
+            font-weight: 500;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>O Camaleão do To Be 🦎</h1>
+        <p class="subtitle">Guia Prático e Interativo para Falantes Nativos de Português Dominarem o Verbo <em>To Be</em> em Inglês</p>
+    </header>
+
+    <!-- INTRODUÇÃO DIDÁTICA COMPLETA -->
+    <div class="section-box">
+        <h2 class="section-title">Por que o Verbo "To Be" é um Desafio para Lusófonos?</h2>
+        <p>Se você fala português como língua materna, já deve ter percebido que o verbo <strong>To Be</strong> costuma causar confusão no início do aprendizado do inglês. Essa dificuldade acontece por três motivos estruturais principais:</p>
+        
+        <ul>
+            <li><strong>Fusão de "SER" e "ESTAR":</strong> No português, temos dois verbos distintos para indicar identidade permanente (<em>Eu sou professor</em>) e estado temporário (<em>Eu estou com fome</em>). O inglês unifica esses dois conceitos em uma única palavra: <strong>AM / IS / ARE</strong>.</li>
+            <li><strong>Interferência da Estrutura Frasal:</strong> Em português, dizemos <em>"Sou professor"</em> (sem artigo) ou <em>"Estou com fome"</em> (usando a preposição "com"). Em inglês, a gramática exige o artigo indefinido para profissões (<em>"I am a teacher"</em>) e adjetivos diretos para sensações físicas (<em>"I am hungry"</em>).</li>
+            <li><strong>Transferência Fonética do Português:</strong> Nossos hábitos de pronúncia afetam o inglês falado. Tendemos a nasalizar finais em <em>M/N</em> (dizendo <em>"Añ"</em> em vez de <em>/æm/</em>), adicionar uma vogal "i" no final de consoantes travadas (dizendo <em>"Izi"</em> para <em>IS</em>) ou transformar o som de <em>TH</em> em <em>D</em> ou <em>Z</em>.</li>
+        </ul>
+        <p>Este aplicativo interativo foi desenvolvido especificamente para treinar seu cérebro e seu aparelho fonador a superarem essas armadilhas de forma prática e intuitiva.</p>
+    </div>
+
+    <!-- ÁREA DO JOGO INTERATIVO -->
+    <div class="score-board">
+        <span>Sua Pontuação:</span>
+        <span class="score-value" id="score">0 pts</span>
+    </div>
+
+    <div class="section-box" id="game-card">
+        <div class="phase-title" id="phase-label">Fase 1: Identidade vs. Estado</div>
+        <div class="prompt" id="prompt-text">Carregando pergunta...</div>
+        <div class="hint" id="hint-text">Dica gramatical...</div>
+
+        <div class="btn-group" id="options-container">
+            <!-- As opções são inseridas via JavaScript -->
+        </div>
+
+        <div class="feedback" id="feedback-box">
+            <div id="feedback-message"></div>
+            <div class="phonetics-box" id="phonetics-message"></div>
+            <br>
+            <button class="btn-accent" onclick="nextQuestion()">Avançar para o Próximo Desafio ➔</button>
+        </div>
+    </div>
+
+    <!-- GUIA TEÓRICO E TABELA DE REFERÊNCIA -->
+    <div class="section-box">
+        <h2 class="section-title">Matriz Gramatical Completa do Verbo To Be</h2>
+        <p>Abaixo está a estrutura do verbo <strong>To Be</strong> no presente simples (<em>Present Simple</em>), comparando seus dois significados em português e suas formas faladas do dia a dia:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Sujeito (Pronoun)</th>
+                    <th>Forma Completa</th>
+                    <th>Forma Contraída</th>
+                    <th>Equivalente em Português</th>
+                    <th>Exemplo Prático</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>I</strong> (Eu)</td>
+                    <td>am</td>
+                    <td>I'm</td>
+                    <td>Sou / Estou</td>
+                    <td>I'm a student / I'm tired</td>
+                </tr>
+                <tr>
+                    <td><strong>He</strong> (Ele)</td>
+                    <td>is</td>
+                    <td>He's</td>
+                    <td>Ele é / Ele está</td>
+                    <td>He's at home / He's smart</td>
+                </tr>
+                <tr>
+                    <td><strong>She</strong> (Ela)</td>
+                    <td>is</td>
+                    <td>She's</td>
+                    <td>Ela é / Ela está</td>
+                    <td>She's a doctor / She's happy</td>
+                </tr>
+                <tr>
+                    <td><strong>It</strong> (Neutro)</td>
+                    <td>is</td>
+                    <td>It's</td>
+                    <td>É / Está (coisas/tempo)</td>
+                    <td>It's cold / It's important</td>
+                </tr>
+                <tr>
+                    <td><strong>You</strong> (Você/Vocês)</td>
+                    <td>are</td>
+                    <td>You're</td>
+                    <td>Você é/está — Vocês são/estão</td>
+                    <td>You're late / You're welcome</td>
+                </tr>
+                <tr>
+                    <td><strong>We</strong> (Nós)</td>
+                    <td>are</td>
+                    <td>We're</td>
+                    <td>Nós somos / Nós estamos</td>
+                    <td>We're ready / We're friends</td>
+                </tr>
+                <tr>
+                    <td><strong>They</strong> (Eles/Elas)</td>
+                    <td>are</td>
+                    <td>They're</td>
+                    <td>Eles(as) são / Eles(as) estão</td>
+                    <td>They're working / They're fast</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ERROS COMUNS DE PRONÚNCIA DE LUSÓFONOS -->
+    <div class="section-box">
+        <h2 class="section-title">Guia Acadêmico de Pronúncia e Correção de Vícios</h2>
+        <ul>
+            <li>
+                <strong>O Som das Consoantes Finais (Epêntese Vocálica):</strong>
+                <br><em>Vício:</em> Pronunciar uma vogal "i" fantasma no final de palavras terminadas em consoante. Exemplo: falar <em>"isi"</em> para <strong>IS</strong>, <em>"not-i"</em> para <strong>NOT</strong>.
+                <br><em>Correção:</em> Trave o som exatamente na consoante final. O <strong>S</strong> em <em>IS</em> soa como um /z/ curto.
+            </li>
+            <li>
+                <strong>Nasalização do M e N:</strong>
+                <br><em>Vício:</em> Em português, a letra M no final de palavra (como em <em>sim</em> ou <em>bem</em>) apenas nasaliza a vogal anterior sem fechar os lábios. Falantes de português dizem <em>"I añ"</em> para <strong>I AM</strong>.
+                <br><em>Correção:</em> No inglês, você <strong>deve fechar completamente os lábios</strong> para articular o som bilabial do M em <strong>AM</strong> (/æm/).
+            </li>
+            <li>
+                <strong>Contração de "THEY ARE" vs. "THERE":</strong>
+                <br><em>Vício:</em> Confundir a pronúncia de <em>They're</em> /ðɛər/ com <em>There</em> ou pronunciar a consoante <em>TH</em> como um <em>D</em> forte (falar <em>"Deir"</em>).
+                <br><em>Correção:</em> Posicione a ponta da língua suavemente entre os dentes incisivos superiores para emitir o som fricativo sonoro /ð/.
+            </li>
+        </ul>
+    </div>
+
+    <div class="footer-note">
+        <p>Desenvolvido como ferramenta de estudo aberto e hospedado no GitHub Pages.</p>
+    </div>
+</div>
+
+<script>
+    // Banco de Dados de Questões Detalhadas
+    const questions = [
+        {
+            phase: "Fase 1: Profissões e Identidade (SER)",
+            prompt: "Como traduzir corretamente para o inglês: 'Eu sou engenheiro'?",
+            hint: "Lembre-se da regra gramatical obrigatória para cargos e profissões no singular em inglês.",
+            options: [
+                { 
+                    text: "I am engineer", 
+                    correct: false, 
+                    reason: "Incorreto! Em português é comum omitir o artigo ('Sou engenheiro'), mas em inglês é GRAMATICALMENTE OBRIGATÓRIO usar o artigo indefinido ('a' ou 'an') antes de profissões no singular." 
+                },
+                { 
+                    text: "I am an engineer", 
+                    correct: true, 
+                    points: 15, 
+                    reason: "Exato! Usamos 'an' porque 'engineer' começa com som de vogal. A regra completa é: 'I am an engineer'." 
+                },
+                { 
+                    text: "I have engineer", 
+                    correct: false, 
+                    reason: "Incorreto! 'I have' significa 'Eu tenho'. O verbo correto para identidade é o To Be ('I am')." 
+                }
+            ],
+            phonetic: "🔊 Dica de Pronúncia: Articule o 'M' em 'AM' encostando os dois lábios. Não deixe o som ficar nasal como na palavra 'com'."
+        },
+        {
+            phase: "Fase 1: Estados Físicos e Sensações (ESTAR)",
+            prompt: "Como traduzir de forma nativa a frase: 'Nós estamos com frio'?",
+            hint: "Cuidado com a tradução literal da expressão 'estar com'!",
+            options: [
+                { 
+                    text: "We are with cold", 
+                    correct: false, 
+                    reason: "Incorreto! 'With' significa 'com' de companhia. Para sensações físicas (frio, calor, fome, sede), o inglês usa diretamente o adjetivo com o verbo To Be." 
+                },
+                { 
+                    text: "We have cold", 
+                    correct: false, 
+                    reason: "Incorreto! 'We have cold' soaria como 'Nós temos um resfriado'. Não descreve a sensação térmica momentânea." 
+                },
+                { 
+                    text: "We are cold", 
+                    correct: true, 
+                    points: 15, 
+                    reason: "Perfeito! Em inglês, dizemos literalmente 'Nós somos/estamos frios' -> 'We are cold'." 
+                }
+            ],
+            phonetic: "🔊 Dica de Pronúncia: Em fala rápida, 'We are' transforma-se em 'We're' (/wɪər/)."
+        },
+        {
+            phase: "Fase 2: Correção Fonética e Vícios de Linguagem",
+            prompt: "Qual das opções descreve a pronúncia correta de 'She is at home' sem vício de sotaque?",
+            hint: "Preste atenção ao som final da palavra 'IS' e ao travamento consonântico.",
+            options: [
+                { 
+                    text: "Pronunciar 'She izi at home' adicionando um som de 'i' ao final de 'is'.", 
+                    correct: false, 
+                    reason: "Incorreto! Adicionar a vogal /i/ no final (epêntese) é um dos vícios mais comuns de falantes de português." 
+                },
+                { 
+                    text: "Pronunciar 'She iz at home', cortando o som exatamente na consoante Z.", 
+                    correct: true, 
+                    points: 20, 
+                    reason: "Excelente! A consoante final 'S' em 'IS' soa como um 'Z' suave e seco /ɪz/, conectando suavemente com a vogal seguinte: 'She-iz-at-home'." 
+                }
+            ],
+            phonetic: "🔊 Dica do Sotaque Carioca: Lembre-se que o 'S' em 'IS' NÃO soa como 'SH' (chiado carioca), e sim como um 'Z' vibrante."
+        },
+        {
+            phase: "Fase 3: Contraccões e Fluência no Dia a Dia",
+            prompt: "Como um nativo diria de forma natural e rápida: 'Eles não estão prontos'?",
+            hint: "O inglês falado prefere formas contraídas negativas.",
+            options: [
+                { 
+                    text: "They're not ready", 
+                    correct: true, 
+                    points: 15, 
+                    reason: "Correto! 'They're not ready' ou 'They aren't ready' são as formas naturais usadas no cotidiano." 
+                },
+                { 
+                    text: "They not are ready", 
+                    correct: false, 
+                    reason: "Incorreto! A negação 'not' deve vir SEMPRE após o verbo To Be (They are not...)." 
+                },
+                { 
+                    text: "There aren't ready", 
+                    correct: false, 
+                    reason: "Incorreto! 'There' indica lugar ou existência ('há/existe'). O pronome correto para 'Eles' é 'They'." 
+                }
+            ],
+            phonetic: "🔊 Dica de Pronúncia: Para fazer o som do 'TH' em 'They', coloque a ponta da língua entre os dentes e emita um som levemente vibrado."
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const q = questions[currentQuestion];
+        document.getElementById('phase-label').innerText = q.phase;
+        document.getElementById('prompt-text').innerText = q.prompt;
+        document.getElementById('hint-text').innerText = q.hint;
+        
+        const container = document.getElementById('options-container');
+        container.innerHTML = '';
+        document.getElementById('feedback-box').style.display = 'none';
+
+        q.options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.innerText = opt.text;
+            btn.onclick = () => selectOption(opt, q.phonetic);
+            container.appendChild(btn);
+        });
+    }
+
+    function selectOption(option, phonetic) {
+        const feedbackBox = document.getElementById('feedback-box');
+        const feedbackMsg = document.getElementById('feedback-message');
+        const phoneticsMsg = document.getElementById('phonetics-message');
+        
+        feedbackBox.style.display = 'block';
+
+        if (option.correct) {
+            feedbackBox.className = 'feedback correct';
+            feedbackMsg.innerHTML = `<strong>Resposta Correta! ✨</strong><div class="explanation-details">${option.reason}</div>`;
+            score += option.points;
+            document.getElementById('score').innerText = score + " pts";
+        } else {
+            feedbackBox.className = 'feedback incorrect';
+            feedbackMsg.innerHTML = `<strong>Atenção! 💡</strong><div class="explanation-details">${option.reason}</div>`;
+        }
+
+        phoneticsMsg.innerText = phonetic;
+    }
+
+    function nextQuestion() {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+            loadQuestion();
+        } else {
+            showEndGame();
+        }
+    }
+
+    function showEndGame() {
+        document.getElementById('game-card').innerHTML = `
+            <h2 style="color: var(--primary);">Parabéns! Você Concluiu o Treinamento! 🏆</h2>
+            <p style="font-size: 1.2rem;">Sua pontuação total acumulada: <strong>${score} pontos</strong></p>
+            <p>Você revisou os aspectos fundamentais do verbo <em>To Be</em>, compreendendo as diferenças de estrutura, artigos, sensações físicas e técnicas de pronúncia para eliminar o sotaque de transferência do português.</p>
+            <br>
+            <button class="btn-accent" onclick="location.reload()">Reiniciar Desafio 🔄</button>
+        `;
+    }
+
+    // Inicializar a aplicação
+    loadQuestion();
+</script>
+
+</body>
+</html>
