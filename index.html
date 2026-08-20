@@ -1,125 +1,325 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workplace English: To Be & Adjectives</title>
-  <style>
-    :root {
-      --bg: #F5EFE3;
-      --primary: #657562;
-      --secondary: #1B3B4A;
-      --white: #FFFFFF;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English for Work: Verb TO BE</title>
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --primary-color: #1b3b4a;
+            --accent-color: #657562;
+            --success-color: #27ae60;
+            --error-color: #c0392b;
+            --border-radius: 8px;
+        }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-    body { background-color: var(--bg); color: var(--secondary); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-    .card { background: var(--white); border-radius: 20px; padding: 30px; max-width: 550px; width: 100%; box-shadow: 0 10px 25px rgba(0,0,0,0.08); text-align: center; }
-    .badge { background-color: var(--primary); color: var(--white); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; display: inline-block; }
-    .context-box { background-color: #EFE8DA; padding: 15px; border-radius: 12px; margin-bottom: 20px; text-align: left; }
-    .pt-hint { color: #555; font-size: 0.95rem; font-style: italic; margin-top: 5px; }
-    .sentence { font-size: 1.3rem; font-weight: bold; margin: 20px 0; color: var(--secondary); }
-    .options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-    button.btn-option { background-color: var(--bg); border: 2px solid var(--primary); color: var(--secondary); padding: 12px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; cursor: pointer; }
-    button.btn-option:hover { background-color: var(--primary); color: var(--white); }
-    .feedback { min-height: 50px; font-size: 0.95rem; font-weight: bold; margin-top: 10px; padding: 10px; border-radius: 8px; text-align: left; }
-    .feedback.correct { color: #2E7D32; background-color: #E8F5E9; }
-    .feedback.wrong { color: #C62828; background-color: #FFEBEE; }
-    .next-btn { background-color: var(--secondary); color: var(--white); border: none; padding: 12px 24px; border-radius: 10px; font-size: 1rem; cursor: pointer; display: none; margin: 15px auto 0; }
-  </style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h1 { margin: 0 0 10px 0; font-size: 24px; }
+        p.subtitle { margin: 0; opacity: 0.9; font-size: 15px; }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        .grid-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .grid-table th, .grid-table td {
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .grid-table th {
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+        }
+
+        .highlight {
+            background-color: #eaf2f8;
+            border-left: 4px solid var(--primary-color);
+            padding: 12px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+
+        .exercise-item {
+            background-color: #fdfdfd;
+            border: 1px solid #e9ecef;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+        }
+
+        .exercise-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .exercise-inputs {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"], select {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        input[type="text"]:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        button.btn-check {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 9px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button.btn-check:hover {
+            opacity: 0.9;
+        }
+
+        .feedback {
+            font-weight: bold;
+            margin-top: 6px;
+            font-size: 13px;
+        }
+
+        .feedback.correct { color: var(--success-color); }
+        .feedback.incorrect { color: var(--error-color); }
+
+        #score-board {
+            position: sticky;
+            top: 10px;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="card">
-  <span class="badge">Prática Divertida: To Be + Adjetivos</span>
-  
-  <div class="context-box">
-    <div id="scenario"><strong>Cenário:</strong> Loading...</div>
-    <div class="pt-hint" id="pt-translation">"..."</div>
-  </div>
+<div class="container">
+    <header>
+        <h1>English for Work: Verbo TO BE</h1>
+        <p class="subtitle">Guia prático e interativo focado no ambiente profissional</p>
+    </header>
 
-  <div class="sentence" id="english-sentence">...</div>
-  <div class="options" id="options-container"></div>
-  <div class="feedback" id="feedback"></div>
-  <button class="next-btn" id="next-btn" onclick="nextQuestion()">Próximo Desafio! 🚀</button>
+    <div id="score-board">
+        <span>Progresso dos Exercícios:</span>
+        <span id="score-display">0 / 30 concluídos</span>
+    </div>
+
+    <!-- SEÇÃO DE TEORIA -->
+    <div class="card">
+        <h2>1. O que é o Verbo TO BE no trabalho?</h2>
+        <p>No português, nós usamos dois verbos diferentes: <strong>SER</strong> (ex: <i>Eu sou gerente</i>) e <strong>ESTAR</strong> (ex: <i>Eu estou no escritório</i>). No inglês, o verbo <strong>TO BE</strong> faz o trabalho desses dois!</p>
+        
+        <div class="highlight">
+            <strong>Regra de Ouro no Trabalho:</strong>
+            <ul>
+                <li><strong>Identidade e Cargo (SER):</strong> I <u>am</u> a manager. (Eu sou gerente)</li>
+                <li><strong>Localização e Estado (ESTAR):</strong> I <u>am</u> in a meeting. (Eu estou em uma reunião)</li>
+            </ul>
+        </div>
+
+        <h3>A Estrutura Básica (Presente Simple)</h3>
+        <table class="grid-table">
+            <thead>
+                <tr>
+                    <th>Pessoa (Pronoun)</th>
+                    <th>Verbo TO BE</th>
+                    <th>Exemplo Profissional</th>
+                    <th>Tradução</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>I (Eu)</td><td><strong>am</strong></td><td>I am available.</td><td>Eu estou disponível.</td></tr>
+                <tr><td>You (Você)</td><td><strong>are</strong></td><td>You are the new designer.</td><td>Você é o novo designer.</td></tr>
+                <tr><td>He / She (Ele / Ela)</td><td><strong>is</strong></td><td>She is ready for the call.</td><td>Ela está pronta para a ligação.</td></tr>
+                <tr><td>It (Objeto / Situação)</td><td><strong>is</strong></td><td>It is urgent.</td><td>Isso é urgente.</td></tr>
+                <tr><td>We (Nós)</td><td><strong>are</strong></td><td>We are in the office.</td><td>Nós estamos no escritório.</td></tr>
+                <tr><td>They (Eles / Elas)</td><td><strong>are</strong></td><td>They are clients.</td><td>Eles são clientes.</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Como estruturar frases completas?</h3>
+        <p>A ordem padrão em inglês é: <strong>Sujeito + Verbo TO BE + Adjetivo ou Substantivo</strong>.</p>
+        <div class="highlight">
+            <strong>Exemplos de Adjetivos (Qualidades/Estados):</strong> busy (ocupado), late (atrasado), ready (pronto), online (conectado).<br>
+            <strong>Exemplos de Substantivos (Nomes/Cargos):</strong> manager (gerente), file (arquivo), doctor (médico), office (escritório).
+        </div>
+
+        <h3>Forma Negativa e Perguntas</h3>
+        <ul>
+            <li><strong>Negativa (Adicione NOT):</strong> She <u>is not</u> (isn't) in the office. (Ela não está no escritório).</li>
+            <li><strong>Pergunta (Inverta a ordem):</strong> <u>Is</u> she in the office? (Ela está no escritório?).</li>
+        </ul>
+    </div>
+
+    <!-- SEÇÃO DE EXERCÍCIOS -->
+    <div class="card">
+        <h2>2. Exercícios Práticos (30 Questões)</h2>
+        <p>Complete as frases com a forma correta do verbo <strong>TO BE</strong> (am, is, are) ou com o adjetivo/substantivo adequado.</p>
+
+        <form id="quiz-form">
+            <div id="exercises-container"></div>
+        </form>
+    </div>
 </div>
 
 <script>
-  // Banco de dados enfocado en contraste Portugués-Inglés
-  const challengeData = [
-    {
-      scenario: "Dizendo que a apresentação está pronta e o cliente está online.",
-      translation: "A apresentação está pronta e o cliente está online.",
-      sentence: "The presentation [substantivo] _____ ready [adjetivo] and the client _____ online.",
-      options: ["is / is", "are / is", "is / are", "am / is"],
-      correct: 0,
-      praise: "Mandou bem! 👏",
-      explanation: "Em inglês, 'presentation' e 'client' são 3ª pessoa do singular (It / He/She), por isso usam 'IS'."
-    },
-    {
-      scenario: "Elogiando a equipe de analistas no final do projeto.",
-      translation: "Os analistas são muito dedicados.",
-      sentence: "The analysts [substantivo] _____ very dedicated [adjetivo].",
-      options: ["is", "are", "am", "be"],
-      correct: 1,
-      praise: "Show de bola! ⚽",
-      explanation: "'Analysts' está no plural (They). Diferente do português, o adjetivo 'dedicated' não recebe 'S' no plural!"
-    },
-    {
-      scenario: "Atualizando seu chefe sobre seu status atual.",
-      translation: "Eu estou muito ocupado hoje.",
-      sentence: "I _____ very busy [adjetivo] today.",
-      options: ["is", "are", "am", "be"],
-      correct: 2,
-      praise: "Massa demais! 🎯",
-      explanation: "Para 'I' (Eu), a única forma correta do verbo To Be no presente é 'AM'."
-    }
-  ];
+const exercisesData = [
+    // Parte 1: Afirmativas Simples (1-10)
+    { id: 1, text: "I ___ ready for the team meeting.", answer: "am", hint: "Use a forma para 'I'", type: "input" },
+    { id: 2, text: "She ___ the new project manager.", answer: "is", hint: "Use a forma para 'She'", type: "input" },
+    { id: 3, text: "We ___ in the office today.", answer: "are", hint: "Use a forma para 'We'", type: "input" },
+    { id: 4, text: "The report ___ finished.", answer: "is", hint: "'The report' equivale a 'It'", type: "input" },
+    { id: 5, text: "They ___ busy with the clients right now.", answer: "are", hint: "Use a forma para 'They'", type: "input" },
+    { id: 6, text: "You ___ very professional.", answer: "are", hint: "Use a forma para 'You'", type: "input" },
+    { id: 7, text: "Mr. Silva ___ in a video call.", answer: "is", hint: "'Mr. Silva' equivale a 'He'", type: "input" },
+    { id: 8, text: "It ___ an important email.", answer: "is", hint: "Use a forma para 'It'", type: "input" },
+    { id: 9, text: "My colleagues ___ very helpful.", answer: "are", hint: "'Colleagues' está no plural (They)", type: "input" },
+    { id: 10, text: "I ___ at my desk.", answer: "am", hint: "Use a forma para 'I'", type: "input" },
 
-  let currentIndex = 0;
+    // Parte 2: Negativas e Perguntas (11-20)
+    { id: 11, text: "He ___ not available at the moment.", answer: "is", hint: "Forma afirmativa que acompanha 'not'", type: "input" },
+    { id: 12, text: "___ you ready to present the project?", answer: "Are", hint: "Pergunta para 'you' (primeira letra maiúscula)", type: "input" },
+    { id: 13, text: "___ she the new developer?", answer: "Is", hint: "Pergunta para 'she' (primeira letra maiúscula)", type: "input" },
+    { id: 14, text: "We ___ not late for the work conference.", answer: "are", hint: "Forma para 'We' na negativa", type: "input" },
+    { id: 15, text: "The presentation ___ not ready yet.", answer: "is", hint: "'Presentation' equivale a 'It'", type: "input" },
+    { id: 16, text: "___ the files on the desk?", answer: "Are", hint: "'Files' é plural (They)", type: "input" },
+    { id: 17, text: "I ___ not online right now.", answer: "am", hint: "Forma para 'I'", type: "input" },
+    { id: 18, text: "___ it time for our lunch break?", answer: "Is", hint: "Pergunta para 'It'", type: "input" },
+    { id: 19, text: "They ___ not in the conference room.", answer: "are", hint: "Forma para 'They'", type: "input" },
+    { id: 20, text: "___ I on the correct email list?", answer: "Am", hint: "Pergunta para 'I'", type: "input" },
 
-  function loadQuestion() {
-    const q = challengeData[currentIndex];
-    document.getElementById("scenario").innerHTML = `<strong>Cenário:</strong> ${q.scenario}`;
-    document.getElementById("pt-translation").innerText = `"${q.translation}"`;
-    document.getElementById("english-sentence").innerText = q.sentence;
-    document.getElementById("feedback").innerText = "";
-    document.getElementById("feedback").className = "feedback";
-    document.getElementById("next-btn").style.display = "none";
+    // Parte 3: Vocabulário Laboral - Adjetivos e Substantivos (21-30)
+    { id: 21, text: "Select the correct adjective: 'I am ___ (atrasado) for the interview.'", answer: "late", options: ["late", "ready", "open"] },
+    { id: 22, text: "Select the correct adjective: 'The client is ___ (satisfeito) with the service.'", answer: "satisfied", options: ["satisfied", "busy", "cold"] },
+    { id: 23, text: "Select the correct noun: 'She is a talented ___ (designer).'", answer: "designer", options: ["designer", "office", "meeting"] },
+    { id: 24, text: "Select the correct adjective: 'Our schedule is very ___ (ocupado) today.'", answer: "busy", options: ["busy", "new", "late"] },
+    { id: 25, text: "Select the correct noun: 'This is my new ___ (computador).'", answer: "computer", options: ["computer", "manager", "email"] },
+    { id: 26, text: "Select the correct adjective: 'The internet connection is ___ (estável).'", answer: "stable", options: ["stable", "busy", "early"] },
+    { id: 27, text: "Select the correct noun: 'He is the main ___ (cliente) of our agency.'", answer: "client", options: ["client", "desk", "system"] },
+    { id: 28, text: "Select the correct adjective: 'Is the budget ___ (suficiente)?'", answer: "sufficient", options: ["sufficient", "online", "late"] },
+    { id: 29, text: "Select the correct noun: 'We are in the central ___ (escritório).'", answer: "office", options: ["office", "manager", "file"] },
+    { id: 30, text: "Select the correct adjective: 'The new system is very ___ (eficiente).'", answer: "efficient", options: ["efficient", "slow", "absent"] }
+];
 
-    const optionsContainer = document.getElementById("options-container");
-    optionsContainer.innerHTML = "";
+let completedSet = new Set();
 
-    q.options.forEach((opt, index) => {
-      const btn = document.createElement("button");
-      btn.className = "btn-option";
-      btn.innerText = opt;
-      btn.onclick = () => checkAnswer(index);
-      optionsContainer.appendChild(btn);
+function renderExercises() {
+    const container = document.getElementById('exercises-container');
+    container.innerHTML = '';
+
+    exercisesData.forEach((ex) => {
+        const item = document.createElement('div');
+        item.className = 'exercise-item';
+
+        let inputHtml = '';
+        if (ex.type === 'input' || !ex.options) {
+            inputHtml = `<input type="text" id="input-${ex.id}" placeholder="Escreva aqui..." autocomplete="off">`;
+        } else {
+            const optionsHtml = ex.options.map(opt => `<option value="${opt}">${opt}</option>`).join('');
+            inputHtml = `<select id="input-${ex.id}"><option value="">Selecione...</option>${optionsHtml}</select>`;
+        }
+
+        item.innerHTML = `
+            <div class="exercise-title">Questão ${ex.id}: ${ex.text}</div>
+            <div class="exercise-inputs">
+                ${inputHtml}
+                <button type="button" class="btn-check" onclick="checkAnswer(${ex.id})">Verificar</button>
+            </div>
+            <div id="feedback-${ex.id}" class="feedback"></div>
+        `;
+        container.appendChild(item);
     });
-  }
+}
 
-  function checkAnswer(selectedIndex) {
-    const q = challengeData[currentIndex];
-    const feedback = document.getElementById("feedback");
-    document.querySelectorAll(".btn-option").forEach(btn => btn.disabled = true);
+function checkAnswer(id) {
+    const ex = exercisesData.find(e => e.id === id);
+    const inputElement = document.getElementById(`input-${id}`);
+    const feedbackElement = document.getElementById(`feedback-${id}`);
+    const userValue = inputElement.value.trim();
 
-    if (selectedIndex === q.correct) {
-      feedback.innerText = `${q.praise} ${q.explanation}`;
-      feedback.classList.add("correct");
+    if (userValue.toLowerCase() === ex.answer.toLowerCase()) {
+        feedbackElement.textContent = "Excelente! Resposta correta.";
+        feedbackElement.className = "feedback correct";
+        completedSet.add(id);
     } else {
-      feedback.innerText = `Quase lá! 😅 A resposta certa é "${q.options[q.correct]}". ${q.explanation}`;
-      feedback.classList.add("wrong");
+        feedbackElement.textContent = `Incorreto. Dica: ${ex.hint || 'Tente novamente.'}`;
+        feedbackElement.className = "feedback incorrect";
+        completedSet.delete(id);
     }
-    document.getElementById("next-btn").style.display = "block";
-  }
 
-  function nextQuestion() {
-    currentIndex = (currentIndex + 1) % challengeData.length;
-    loadQuestion();
-  }
+    updateScore();
+}
 
-  loadQuestion();
+function updateScore() {
+    document.getElementById('score-display').textContent = `${completedSet.size} / ${exercisesData.length} concluídos`;
+}
+
+window.onload = renderExercises;
 </script>
+
 </body>
 </html>
