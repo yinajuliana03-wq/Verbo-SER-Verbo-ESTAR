@@ -3,135 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business English Quest: To Be, Nouns & Adjectives</title>
+  <title>Workplace English: To Be & Adjectives</title>
   <style>
     :root {
       --bg: #F5EFE3;
       --primary: #657562;
       --secondary: #1B3B4A;
-      --accent: #E07A5F;
       --white: #FFFFFF;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    
-    body {
-      background-color: var(--bg);
-      color: var(--secondary);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 30px;
-      max-width: 600px;
-      width: 100%;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      text-align: center;
-    }
-
-    .badge {
-      background-color: var(--primary);
-      color: var(--white);
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      display: inline-block;
-      margin-bottom: 15px;
-    }
-
-    .context-box {
-      background-color: #EFE8DA;
-      padding: 15px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      font-size: 1.05rem;
-      text-align: left;
-    }
-
-    .pt-hint {
-      color: #555;
-      font-size: 0.95rem;
-      font-style: italic;
-      margin-top: 5px;
-    }
-
-    .sentence {
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin: 20px 0;
-      color: var(--secondary);
-      line-height: 1.4;
-    }
-
-    .options {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    button.btn-option {
-      background-color: var(--bg);
-      border: 2px solid var(--primary);
-      color: var(--secondary);
-      padding: 12px;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    button.btn-option:hover {
-      background-color: var(--primary);
-      color: var(--white);
-    }
-
-    .feedback {
-      min-height: 60px;
-      font-size: 1rem;
-      font-weight: bold;
-      margin-top: 10px;
-      text-align: left;
-      padding: 10px;
-      border-radius: 8px;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    body { background-color: var(--bg); color: var(--secondary); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+    .card { background: var(--white); border-radius: 20px; padding: 30px; max-width: 550px; width: 100%; box-shadow: 0 10px 25px rgba(0,0,0,0.08); text-align: center; }
+    .badge { background-color: var(--primary); color: var(--white); padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; margin-bottom: 15px; display: inline-block; }
+    .context-box { background-color: #EFE8DA; padding: 15px; border-radius: 12px; margin-bottom: 20px; text-align: left; }
+    .pt-hint { color: #555; font-size: 0.95rem; font-style: italic; margin-top: 5px; }
+    .sentence { font-size: 1.3rem; font-weight: bold; margin: 20px 0; color: var(--secondary); }
+    .options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+    button.btn-option { background-color: var(--bg); border: 2px solid var(--primary); color: var(--secondary); padding: 12px; border-radius: 10px; font-size: 0.95rem; font-weight: 600; cursor: pointer; }
+    button.btn-option:hover { background-color: var(--primary); color: var(--white); }
+    .feedback { min-height: 50px; font-size: 0.95rem; font-weight: bold; margin-top: 10px; padding: 10px; border-radius: 8px; text-align: left; }
     .feedback.correct { color: #2E7D32; background-color: #E8F5E9; }
     .feedback.wrong { color: #C62828; background-color: #FFEBEE; }
-
-    .score-board {
-      margin-top: 20px;
-      font-size: 0.95rem;
-      color: var(--secondary);
-      font-weight: 600;
-    }
-
-    .next-btn {
-      background-color: var(--secondary);
-      color: var(--white);
-      border: none;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      display: none;
-      margin: 15px auto 0;
-    }
+    .next-btn { background-color: var(--secondary); color: var(--white); border: none; padding: 12px 24px; border-radius: 10px; font-size: 1rem; cursor: pointer; display: none; margin: 15px auto 0; }
   </style>
 </head>
 <body>
 
 <div class="card">
-  <span class="badge" id="level-tag">Business English Challenge</span>
+  <span class="badge">Prática Divertida: To Be + Adjetivos</span>
   
   <div class="context-box">
     <div id="scenario"><strong>Cenário:</strong> Loading...</div>
@@ -139,158 +39,44 @@
   </div>
 
   <div class="sentence" id="english-sentence">...</div>
-
   <div class="options" id="options-container"></div>
-
   <div class="feedback" id="feedback"></div>
-  <button class="next-btn" id="next-btn" onclick="nextQuestion()">Bora pra próxima! 💼🚀</button>
-
-  <div class="score-board">
-    Pontuação: <span id="score">0</span> | Questão: <span id="current">1</span>/<span id="total">15</span>
-  </div>
+  <button class="next-btn" id="next-btn" onclick="nextQuestion()">Próximo Desafio! 🚀</button>
 </div>
 
 <script>
+  // Banco de dados enfocado en contraste Portugués-Inglés
   const challengeData = [
     {
-      scenario: "Início de reunião no Teams/Zoom.",
+      scenario: "Dizendo que a apresentação está pronta e o cliente está online.",
       translation: "A apresentação está pronta e o cliente está online.",
-      sentence: "The presentation _____ ready and the client _____ online.",
+      sentence: "The presentation [substantivo] _____ ready [adjetivo] and the client _____ online.",
       options: ["is / is", "are / is", "is / are", "am / is"],
       correct: 0,
-      praise: "Boa! Reunião começou com tudo! 📈",
-      explanation: "Ambos os sujeitos ('presentation' e 'client') são de terceira pessoa do singular (it / he/she), portanto usamos 'is'."
+      praise: "Mandou bem! 👏",
+      explanation: "Em inglês, 'presentation' e 'client' são 3ª pessoa do singular (It / He/She), por isso usam 'IS'."
     },
     {
-      scenario: "Organizando o fluxo de tarefas da equipe.",
-      translation: "Os relatórios trimestrais são muito detalhados.",
-      sentence: "The quarterly reports _____ very detailed.",
+      scenario: "Elogiando a equipe de analistas no final do projeto.",
+      translation: "Os analistas são muito dedicados.",
+      sentence: "The analysts [substantivo] _____ very dedicated [adjetivo].",
       options: ["is", "are", "am", "be"],
       correct: 1,
-      praise: "Show! Análise perfeita! 📊",
-      explanation: "'Reports' está no plural (they), então o verbo correto é 'are'."
+      praise: "Show de bola! ⚽",
+      explanation: "'Analysts' está no plural (They). Diferente do português, o adjetivo 'dedicated' não recebe 'S' no plural!"
     },
     {
-      scenario: "Atualizando o gerente sobre seu estado de trabalho.",
-      translation: "Eu estou focado neste projeto urgente.",
-      sentence: "I _____ focused on this urgent project.",
-      options: ["are", "is", "am", "be"],
-      correct: 2,
-      praise: "Mandou bem! Foco total no deliverable! 🎯",
-      explanation: "Para a primeira pessoa 'I', a forma correta do verbo 'To Be' é 'am'."
-    },
-    {
-      scenario: "Avaliando candidatos em um processo seletivo.",
-      translation: "O novo analista é eficiente e pontual.",
-      sentence: "The new analyst _____ efficient and punctual.",
-      options: ["are", "is", "am", "were"],
-      correct: 1,
-      praise: "Contratado! Excelente resposta! 🤝",
-      explanation: "'The new analyst' equivale a ele/ela (he/she), por isso usamos 'is'."
-    },
-    {
-      scenario: "Alerta de infraestrutura ou suporte de TI.",
-      translation: "Os servidores estão instáveis hoje.",
-      sentence: "The servers _____ unstable today.",
-      options: ["is", "am", "are", "be"],
-      correct: 2,
-      praise: "Chama o TI! Mas a gramática tá 100%! 💻",
-      explanation: "'Servers' é um substantivo no plural (they), exigindo 'are'."
-    },
-    {
-      scenario: "Momento de feedback e avaliação de metas.",
-      translation: "Nossos resultados são excelentes neste trimestre.",
-      sentence: "Our results _____ excellent this quarter.",
+      scenario: "Atualizando seu chefe sobre seu status atual.",
+      translation: "Eu estou muito ocupado hoje.",
+      sentence: "I _____ very busy [adjetivo] today.",
       options: ["is", "are", "am", "be"],
-      correct: 1,
-      praise: "Bateu a meta! Sensacional! 🏆",
-      explanation: "'Our results' (nossos resultados) está no plural, logo o verbo correto é 'are'."
-    },
-    {
-      scenario: "Alinhamento com equipe de vendas e orçamento.",
-      translation: "O orçamento é limitado, mas o plano é inteligente.",
-      sentence: "The budget _____ limited, but the plan _____ smart.",
-      options: ["are / is", "is / are", "is / is", "am / is"],
       correct: 2,
-      praise: "Economizou e acertou! 💰",
-      explanation: "'Budget' (it) e 'plan' (it) são coisas no singular, portanto ambos usam 'is'."
-    },
-    {
-      scenario: "Mensagem rápida no Slack/WhatsApp corporativo.",
-      translation: "Nós estamos atrasados para a chamada com o diretor.",
-      sentence: "We _____ late for the call with the director.",
-      options: ["is", "am", "are", "be"],
-      correct: 2,
-      praise: "Corre pra call! Acertou em cheio! ⏰",
-      explanation: "O pronombre 'We' (nós) sempre concorda com 'are'."
-    },
-    {
-      scenario: "Análise de logística e fornecedores.",
-      translation: "A nova fornecedora é confiável.",
-      sentence: "The new supplier _____ reliable.",
-      options: ["are", "is", "am", "be"],
-      correct: 1,
-      praise: "Parceria de sucesso! 📦",
-      explanation: "'Supplier' (fornecedor/a) está no singular (she/he/it), usa 'is'."
-    },
-    {
-      scenario: "Checando a rotina de trabalho remoto.",
-      translation: "Você está disponível para um alinhamento rápido?",
-      sentence: "_____ you available for a quick sync?",
-      options: ["Is", "Am", "Are", "Be"],
-      correct: 2,
-      praise: "Mandou muito no alinhamento! 📞",
-      explanation: "Em perguntas com 'you', o verbo 'Are' vem no início da frase."
-    },
-    {
-      scenario: "Trabalho em equipe e clima organizacional.",
-      translation: "Os desenvolvedores são inovadores e prestativos.",
-      sentence: "The developers _____ innovative and helpful.",
-      options: ["is", "are", "am", "be"],
-      correct: 1,
-      praise: "Squad afinada! Boa! 🚀",
-      explanation: "'Developers' (plural) concorda com 'are'."
-    },
-    {
-      scenario: "Envio de contrato ao departamento jurídico.",
-      translation: "O contrato é assinado e a cláusula é clara.",
-      sentence: "The contract _____ signed and the clause _____ clear.",
-      options: ["is / is", "are / is", "is / are", "are / are"],
-      correct: 0,
-      praise: "Aprovado pelo jurídico! 📜",
-      explanation: "Tanto 'contract' quanto 'clause' são substantivos no singular (it), requisitando 'is'."
-    },
-    {
-      scenario: "Encontro casual no café da empresa.",
-      translation: "A nova gerente de projetos é muito simpática.",
-      sentence: "The new project manager _____ very friendly.",
-      options: ["are", "am", "is", "be"],
-      correct: 2,
-      praise: "Mandou bem no networking! ☕",
-      explanation: "'Project manager' (singular) pede o verbo 'is'."
-    },
-    {
-      scenario: "Revisão do plano de marketing.",
-      translation: "As campanhas de e-mail são bem-sucedidas.",
-      sentence: "The email campaigns _____ successful.",
-      options: ["is", "are", "am", "be"],
-      correct: 1,
-      praise: "ROI alto com essa resposta! 📈",
-      explanation: "'Campaigns' (plural) usa 'are'."
-    },
-    {
-      scenario: "Encerramento da jornada de trabalho.",
-      translation: "A tarefa está concluída e os arquivos estão salvos.",
-      sentence: "The task _____ finished and the files _____ saved.",
-      options: ["is / are", "are / is", "is / is", "am / are"],
-      correct: 0,
-      praise: "Sextou! Mandou bem demais! 🎉",
-      explanation: "'Task' é singular (is) e 'files' é plural (are)."
+      praise: "Massa demais! 🎯",
+      explanation: "Para 'I' (Eu), a única forma correta do verbo To Be no presente é 'AM'."
     }
   ];
 
   let currentIndex = 0;
-  let score = 0;
 
   function loadQuestion() {
     const q = challengeData[currentIndex];
@@ -300,8 +86,6 @@
     document.getElementById("feedback").innerText = "";
     document.getElementById("feedback").className = "feedback";
     document.getElementById("next-btn").style.display = "none";
-    document.getElementById("current").innerText = currentIndex + 1;
-    document.getElementById("total").innerText = challengeData.length;
 
     const optionsContainer = document.getElementById("options-container");
     optionsContainer.innerHTML = "";
@@ -318,39 +102,21 @@
   function checkAnswer(selectedIndex) {
     const q = challengeData[currentIndex];
     const feedback = document.getElementById("feedback");
-    const buttons = document.querySelectorAll(".btn-option");
-
-    buttons.forEach(btn => btn.disabled = true);
+    document.querySelectorAll(".btn-option").forEach(btn => btn.disabled = true);
 
     if (selectedIndex === q.correct) {
-      score += 10;
-      document.getElementById("score").innerText = score;
       feedback.innerText = `${q.praise} ${q.explanation}`;
       feedback.classList.add("correct");
     } else {
-      feedback.innerText = `Ops! Quase lá... 😅 A resposta certa era "${q.options[q.correct]}". ${q.explanation}`;
+      feedback.innerText = `Quase lá! 😅 A resposta certa é "${q.options[q.correct]}". ${q.explanation}`;
       feedback.classList.add("wrong");
     }
-
-    document.getElementById("next-btn").style.display = "inline-block";
+    document.getElementById("next-btn").style.display = "block";
   }
 
   function nextQuestion() {
-    currentIndex++;
-    if (currentIndex < challengeData.length) {
-      loadQuestion();
-    } else {
-      showFinalScreen();
-    }
-  }
-
-  function showFinalScreen() {
-    const card = document.querySelector(".card");
-    card.innerHTML = `
-      <h2>Promoção Garantida! 💼🏆</h2>
-      <p style="margin: 20px 0; font-size: 1.2rem;">Você acumulou <strong>${score}</strong> de ${challengeData.length * 10} pontos possíveis no Corporate Challenge!</p>
-      <button class="next-btn" style="display:inline-block;" onclick="location.reload()">Jogar Novamente 🔄</button>
-    `;
+    currentIndex = (currentIndex + 1) % challengeData.length;
+    loadQuestion();
   }
 
   loadQuestion();
